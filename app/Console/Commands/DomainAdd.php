@@ -42,8 +42,8 @@ class DomainAdd extends Command
             $this->reload_apache();
             info('Apache was reloaded!');
 
-            $this->access_www_data($base_path);
-            info('Given path www-data access!');
+            /*$this->access_www_data($base_path);
+            info('Given path www-data access!');*/
 
             info('Changes was saved');
         } else {
@@ -76,12 +76,12 @@ class DomainAdd extends Command
         $base_path = null;
 
         if ($path_type == 'laravel') {
-            $path = '/var/www/html/projects/' . $domain_folder . '/public';
-            $base_path = '/var/www/html/projects/' . $domain_folder;
+            $path = env('APP_PATH') . $domain_folder . '/public';
+            $base_path = env('APP_PATH') . $domain_folder;
         }
 
         if ($path_type == 'non-laravel') {
-            $path = '/var/www/html/projects/' . $domain_folder;
+            $path = env('APP_PATH') . $domain_folder;
         }
 
         if ($path_type == 'custom') {
