@@ -1,0 +1,8 @@
+<VirtualHost *:80>
+    ServerName [*DOMAIN*]
+    DocumentRoot [*ROOT_PATH*]
+    <Directory [*BASE_PATH*]/>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
